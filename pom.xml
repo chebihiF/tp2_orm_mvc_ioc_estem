@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -75,7 +74,6 @@
             <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
-
 
         <dependency>
             <groupId>javax.servlet</groupId>
