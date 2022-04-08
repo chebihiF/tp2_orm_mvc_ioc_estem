@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-public class CustomerDao implements ICustomerDao{
+
+public class CustomerDao2 implements ICustomerDao{
 
     private SessionFactory factory = HibernateUtil.getFactory();
     private Session session;

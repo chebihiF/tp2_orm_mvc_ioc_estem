@@ -10,9 +10,9 @@ public class HibernateUtil {
     static{
         factory = new Configuration()
                 .configure()
-//                .addAnnotatedClass(Product.class)
-//                .addAnnotatedClass(Customer.class)
-                .addPackage("estem.gwt.tp2.entities")
+                .addAnnotatedClass(Product.class)
+                .addAnnotatedClass(Customer.class)
+//                .addPackage("estem.gwt.tp2.entities")
                 .buildSessionFactory();
     }
 

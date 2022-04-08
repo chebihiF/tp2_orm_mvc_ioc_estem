@@ -11,4 +11,9 @@
         <property name="prefix" value="WEB-INF/views/"/>
     </bean>
 
+    <bean id="myDao" class="estem.gwt.tp2.dao.CustomerDao"/>
+    <bean id="metier" class="estem.gwt.tp2.metier.CustomerMetier">
+        <property name="dao" ref="myDao"/>
+    </bean>
+
 </beans>
