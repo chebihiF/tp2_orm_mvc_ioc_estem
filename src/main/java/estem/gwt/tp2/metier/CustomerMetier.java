@@ -4,6 +4,7 @@ import estem.gwt.tp2.dao.ICustomerDao;
 import estem.gwt.tp2.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class CustomerMetier implements ICustomerMetier{
         this.dao = dao;
     }
 
-    @Override
+    @Override @Transactional
     public Customer subscribe(Customer customer) throws Exception {
         if(!customer.getEmail().contains("gmail")) throw new Exception("email invalid");
         if(customer.getName().trim().equals("")) throw new Exception("name must be set");

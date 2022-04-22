@@ -1,33 +1,40 @@
 package estem.gwt.tp2.dao;
 
 import estem.gwt.tp2.entities.Customer;
-import estem.gwt.tp2.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 public class CustomerDao implements ICustomerDao{
 
-    private SessionFactory factory = HibernateUtil.getFactory();
-    private Session session;
+    /*@Autowired
+    private SessionFactory factory;
+    private Session session;*/
+    @PersistenceUnit
+    EntityManager entityManager ;
 
     @Override
     public Customer addCustomer(Customer customer) throws Exception {
-        try {
+        entityManager.persist(customer);
+        return customer;
+        /*try {
             session = factory.openSession();
-            session.beginTransaction();
+            //session.beginTransaction();
             Long id = (Long) session.save(customer);
-            session.getTransaction().commit();
+            //session.getTransaction().commit();
             customer.setId(id);
             return customer;
         }catch (Exception e) {
-            session.getTransaction().rollback();
+           // session.getTransaction().rollback();
             throw e ;
         }finally {
             session.close();
-        }
+        }*/
     }
 
     @Override
